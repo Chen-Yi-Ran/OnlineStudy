@@ -46,14 +46,14 @@ dependencies {
     //retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     //gson转换
-    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.2'
 
     //okhttp
     implementation 'com.squareup.okhttp3:okhttp:4.8.0'
     //okhttp拦截器
     implementation 'com.squareup.okhttp3:logging-interceptor:4.8.0'
     //gson
-    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.google.code.gson:gson:2.8.5'
     //工具库
     implementation 'com.blankj:utilcodex:1.29.0'
 }

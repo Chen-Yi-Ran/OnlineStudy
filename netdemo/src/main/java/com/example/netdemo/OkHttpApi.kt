@@ -1,7 +1,13 @@
 package com.example.netdemo
 
+import android.os.SystemClock
+import androidx.collection.SimpleArrayMap
+import com.blankj.utilcode.util.GsonUtils
 import com.blankj.utilcode.util.LogUtils
+import com.google.gson.Gson
 import okhttp3.*
+import okhttp3.HttpUrl.Companion.toHttpUrl
+import okhttp3.RequestBody.Companion.toRequestBody
 import java.io.File
 import java.io.IOException
 import java.util.concurrent.TimeUnit
@@ -15,6 +21,8 @@ class OkHttpApi:HttpApi {
 
     private var baseUrl="https://www.wanandroid.com/"
 
+    //存储请求，用于取消
+    private val callMap=SimpleArrayMap<Any,Call>()
     //okHttpClient
     private val mClient=OkHttpClient.Builder()
             //配置
@@ -25,13 +33,18 @@ class OkHttpApi:HttpApi {
         .retryOnConnectionFailure(true)//重连
         .followRedirects(false)//重定向
         .cache(Cache(File("sdcard/cache","okhttp"),1024))//okhttp缓存数据存放地址
-        .build()
+
+        .addInterceptor(KtHttpLogInterceptor{//如果添加的是NetWorkInterceptor获取到的只有post请求没有get请求
+            logLevel(KtHttpLogInterceptor.LogLevel.BODY)
+
+
+        }).build()
 
 
 
     override fun get(params: Map<String, Any?>, path: String, callback: IHttpCallback) {
         val url="$baseUrl$path"
-        val urlBuilder=HttpUrl.Builder()
+        val urlBuilder=url.toHttpUrl().newBuilder()
         //如果get请求有参数，下面语句可以简化的进行拼接
         params.forEach{
             entry ->
@@ -39,9 +52,14 @@ class OkHttpApi:HttpApi {
         }
         val request=Request.Builder()
             .get()
-            .url(url)
+            .tag(params)
+            .url(urlBuilder.build())
+            .cacheControl(CacheControl.FORCE_CACHE)//缓冲控制
             .build()
-        mClient.newCall(request).enqueue(object :Callback{
+       val newCall=mClient.newCall(request)
+        //存储请求，用于取消
+        callMap.put(request.tag(),newCall)
+        newCall.enqueue(object :Callback{
             override fun onFailure(call: Call, e: IOException) {
                 callback.onFailed(e.message)
             }
@@ -57,19 +75,43 @@ class OkHttpApi:HttpApi {
 
     override fun post(body: Any, path: String, callback: IHttpCallback) {
         val url="$baseUrl$path"
+        LogUtils.d(url)
         val request=Request.Builder()
-            .get()
+            .post(Gson().toJson(body).toRequestBody())
             .url(url)
+            .tag(body)
+//            .addHeader("contentType","multipart/form-data; boundary=<calculated when request is sent>")
             .build()
-        mClient.newCall(request).enqueue(object :Callback{
+        val newCall= mClient.newCall(request)
+        //存储请求，用于取消
+        callMap.put(request.tag(),newCall)
+        newCall.enqueue(object :Callback{
             override fun onFailure(call: Call, e: IOException) {
                 callback.onFailed(e.message)
             }
 
             override fun onResponse(call: Call, response: Response) {
-                callback.onSuccess(response)
+                callback.onSuccess(response.body?.string())
             }
 
         })
+
+
+    }
+
+    /**
+     * 取消网络请求，tag就是每次请求的id标记，也就是请求的传参
+     */
+    override fun cancelRequest(tag: Any) {
+        callMap.get(tag)?.cancel()
+    }
+
+    /**
+     * 取消所有网络请求
+     */
+    override fun cancelAllRequest() {
+        for(i in 0 until callMap.size()){
+            callMap.get(callMap.keyAt(i))?.cancel()
+        }
     }
 }
