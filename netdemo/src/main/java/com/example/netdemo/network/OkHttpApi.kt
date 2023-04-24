@@ -1,18 +1,14 @@
-package com.example.netdemo
+package com.example.netdemo.network
 
-import android.os.SystemClock
 import androidx.collection.SimpleArrayMap
-import com.blankj.utilcode.util.GsonUtils
 import com.blankj.utilcode.util.LogUtils
 import com.google.gson.Gson
 import okhttp3.*
 import okhttp3.HttpUrl.Companion.toHttpUrl
 import okhttp3.RequestBody.Companion.toRequestBody
-import java.io.File
 import java.io.IOException
-import java.util.concurrent.TimeUnit
 
-class OkHttpApi:HttpApi {
+class OkHttpApi: HttpApi {
 
 
     companion object{
@@ -25,14 +21,14 @@ class OkHttpApi:HttpApi {
     private val callMap=SimpleArrayMap<Any,Call>()
     //okHttpClient
     private val mClient=OkHttpClient.Builder()
-            //配置
-        .callTimeout(10,TimeUnit.SECONDS)//完整请求超时时长
-        .connectTimeout(10,TimeUnit.SECONDS)//与服务器建立连接的时长，默认10s
-        .readTimeout(10,TimeUnit.SECONDS)//读取服务器返回数据的时长
-        .writeTimeout(10,TimeUnit.SECONDS)//向服务器写入数据的时长，默认10s
-        .retryOnConnectionFailure(true)//重连
-        .followRedirects(false)//重定向
-        .cache(Cache(File("sdcard/cache","okhttp"),1024))//okhttp缓存数据存放地址
+//            //配置
+//        .callTimeout(10,TimeUnit.SECONDS)//完整请求超时时长
+//        .connectTimeout(10,TimeUnit.SECONDS)//与服务器建立连接的时长，默认10s
+//        .readTimeout(10,TimeUnit.SECONDS)//读取服务器返回数据的时长
+//        .writeTimeout(10,TimeUnit.SECONDS)//向服务器写入数据的时长，默认10s
+//        .retryOnConnectionFailure(true)//重连
+//        .followRedirects(false)//重定向
+//        .cache(Cache(File("sdcard/cache","okhttp"),1024))//okhttp缓存数据存放地址
 
         .addInterceptor(KtHttpLogInterceptor{//如果添加的是NetWorkInterceptor获取到的只有post请求没有get请求
             logLevel(KtHttpLogInterceptor.LogLevel.BODY)

@@ -1,21 +1,19 @@
-package com.example.netdemo
+package com.example.netdemo.network
 
 import android.util.Log
-import com.blankj.utilcode.util.LogUtils
 import okhttp3.*
 import java.lang.StringBuilder
 import java.net.URLDecoder
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.jvm.internal.Intrinsics
 
 
 //用于记录okHttp的网络日志的拦截器
 class KtHttpLogInterceptor(block:(KtHttpLogInterceptor.()->Unit)?=null):Interceptor {
 
-    private var logLevel:LogLevel=LogLevel.NONE//打印日期的标记
-    private var colorLevel:ColorLevel=ColorLevel.DEBUG//默认是debug级别的logcat
-    private var logTag=TAG//日志的Logcat的Tag
+    private var logLevel: LogLevel = LogLevel.NONE//打印日期的标记
+    private var colorLevel: ColorLevel = ColorLevel.DEBUG//默认是debug级别的logcat
+    private var logTag= TAG//日志的Logcat的Tag
 
     init {
         block?.invoke(this)
@@ -24,7 +22,7 @@ class KtHttpLogInterceptor(block:(KtHttpLogInterceptor.()->Unit)?=null):Intercep
     /**
      * 设置LogLevel
      */
-    fun logLevel(level:LogLevel):KtHttpLogInterceptor{
+    fun logLevel(level: LogLevel): KtHttpLogInterceptor {
         logLevel=level
         return this
     }
@@ -66,7 +64,7 @@ class KtHttpLogInterceptor(block:(KtHttpLogInterceptor.()->Unit)?=null):Intercep
             )
         }.onSuccess {
             response->
-            if(logLevel==LogLevel.NONE){
+            if(logLevel== LogLevel.NONE){
                 return response
             }
             //记录请求日志
@@ -83,17 +81,17 @@ class KtHttpLogInterceptor(block:(KtHttpLogInterceptor.()->Unit)?=null):Intercep
         sb.append("\r\n")
         sb.appendln("->->->->->->->->->->->->")
         when(logLevel){
-            LogLevel.NONE->{
+            LogLevel.NONE ->{
 
             }
-            LogLevel.BASIC->{
+            LogLevel.BASIC ->{
                 logBasicReq(sb, request, connection)
             }
-            LogLevel.HEADERS->{
+            LogLevel.HEADERS ->{
                 logHeadersReq(sb, request, connection)
 
             }
-            LogLevel.BODY->{
+            LogLevel.BODY ->{
                 logBodyReq(sb, request, connection)
             }
         }
@@ -129,16 +127,16 @@ class KtHttpLogInterceptor(block:(KtHttpLogInterceptor.()->Unit)?=null):Intercep
         sb.append("\r\n")
         sb.appendln("->->->->->->->->->->->->")
         when(logLevel){
-            LogLevel.NONE->{
+            LogLevel.NONE ->{
 
             }
-            LogLevel.BASIC->{
+            LogLevel.BASIC ->{
               logBasicRsp(sb ,response)
             }
-            LogLevel.HEADERS->{
+            LogLevel.HEADERS ->{
                 logHeadersRsp(response, sb)
             }
-            LogLevel.BODY->{
+            LogLevel.BODY ->{
                  logHeadersRsp(response, sb)
                 kotlin.runCatching {
                     //peek类似于clone数据流，监视，窥探，不能直接用原来的body的string流数据作为日志
@@ -149,7 +147,7 @@ class KtHttpLogInterceptor(block:(KtHttpLogInterceptor.()->Unit)?=null):Intercep
             }
         }
         sb.appendln("<<-<<-<<-<<-<<-<<-<<-<<")
-        logIt(sb,ColorLevel.INFO)
+        logIt(sb, ColorLevel.INFO)
 
     }
     //用于url编码的string解码
@@ -164,13 +162,13 @@ class KtHttpLogInterceptor(block:(KtHttpLogInterceptor.()->Unit)?=null):Intercep
     //打印日志
     //any需要打印的数据对象
     //tempLevel便于临时调整打印color等级
-    private fun logIt(any: Any, tempLevel: ColorLevel ?=null){
+    private fun logIt(any: Any, tempLevel: ColorLevel?=null){
         when(tempLevel?:colorLevel){
-            ColorLevel.VERBOSE->Log.v(logTag,any.toString())
-            ColorLevel.DEBUG->Log.d(logTag,any.toString())
-            ColorLevel.INFO->Log.i(logTag,any.toString())
-            ColorLevel.WARN->Log.w(logTag,any.toString())
-            ColorLevel.ERROR->Log.e(logTag,any.toString())
+            ColorLevel.VERBOSE ->Log.v(logTag,any.toString())
+            ColorLevel.DEBUG ->Log.d(logTag,any.toString())
+            ColorLevel.INFO ->Log.i(logTag,any.toString())
+            ColorLevel.WARN ->Log.w(logTag,any.toString())
+            ColorLevel.ERROR ->Log.e(logTag,any.toString())
         }
     }
     private fun logHeadersRsp(response: Response,sb:StringBuffer){
@@ -185,9 +183,15 @@ class KtHttpLogInterceptor(block:(KtHttpLogInterceptor.()->Unit)?=null):Intercep
     private fun logBasicRsp(sb:StringBuffer,response: Response){
         sb.appendln("响应 protocol:${response.protocol} code:${response.code} message:${response.message}")
             .appendln("响应 request Url: ${decodeUrlStr(response.request.url.toString())}")
-            .appendln("响应 sentRequestTime:${toDataTimeStr(response.sentRequestAtMillis,
-                MILLIS_PATTERN)}receiveResponseTime:${toDataTimeStr(response.receivedResponseAtMillis,
-                MILLIS_PATTERN)}")
+            .appendln("响应 sentRequestTime:${
+                toDataTimeStr(response.sentRequestAtMillis,
+                MILLIS_PATTERN
+                )
+            }receiveResponseTime:${
+                toDataTimeStr(response.receivedResponseAtMillis,
+                MILLIS_PATTERN
+                )
+            }")
     }
 
     companion object{

@@ -1,6 +1,4 @@
-package com.example.netdemo
-
-import okhttp3.Callback
+package com.example.netdemo.network
 
 
 //网络请求的统一接口类

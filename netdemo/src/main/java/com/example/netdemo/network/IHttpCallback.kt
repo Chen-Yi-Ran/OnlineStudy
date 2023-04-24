@@ -1,4 +1,4 @@
-package com.example.netdemo
+package com.example.netdemo.network
 
 //网络请求的接口回调
 interface IHttpCallback {

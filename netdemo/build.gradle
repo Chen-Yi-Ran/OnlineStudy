@@ -43,11 +43,9 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-    //retrofit
-    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    //gson转换
-    implementation 'com.squareup.retrofit2:converter-gson:2.6.2'
-
+    implementation 'com.squareup.retrofit2:retrofit:2.6.3'
+    implementation 'com.squareup.retrofit2:converter-gson:2.7.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.0-beta01'
     //okhttp
     implementation 'com.squareup.okhttp3:okhttp:4.8.0'
     //okhttp拦截器
@@ -56,4 +54,7 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
     //工具库
     implementation 'com.blankj:utilcodex:1.29.0'
+    //协程
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.0.0'
+    implementation 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2'
 }

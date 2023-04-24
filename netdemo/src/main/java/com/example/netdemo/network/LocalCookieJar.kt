@@ -1,4 +1,4 @@
-package com.example.netdemo
+package com.example.netdemo.network
 
 import okhttp3.Cookie
 import okhttp3.CookieJar
