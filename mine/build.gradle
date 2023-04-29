@@ -4,6 +4,16 @@ plugins {
 }
 apply from: '../dependencies.gradle'
 android {
+    sourceSets {
+        main {
+            assets {
+                srcDirs 'src\\main\\assets'
+            }
+            res {
+                srcDirs 'src\\main\\res'
+            }
+        }
+    }
     //from dependencies.gradle
 }
 

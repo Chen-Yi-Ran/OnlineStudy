@@ -36,6 +36,8 @@ buildscript {
         classpath "org.koin:koin-gradle-plugin:$koin_version"
         //阿里 Arouter
         classpath "com.alibaba:arouter-register:1.0.2"
+        //doki调试辅助工具
+        classpath 'com.didichuxing.doraemonkit:dokitx-plugin:3.3.5'
     }
 }
 apply plugin: 'com.alibaba.arouter'

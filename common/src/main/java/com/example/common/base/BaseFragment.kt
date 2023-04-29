@@ -9,6 +9,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
+import com.blankj.utilcode.util.LogUtils
 
 /**
  * Fragment的抽象父类
@@ -65,8 +66,11 @@ abstract class BaseFragment :Fragment {
 
 
     //open表示可被子类重写
-    open fun initConfig() {
 
+
+    //View初始化后的必要配置
+    open fun initConfig() {
+       LogUtils.d("${this.javaClass.simpleName}初始化initConfig")
     }
 
 
