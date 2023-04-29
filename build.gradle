@@ -7,19 +7,24 @@ buildscript {
         target_sdk_version =30
         build_tools_version ="30.0.3"
         min_sdk_version= 21
-
+        koin_version="2.2.2"
         lib_version_code =1
         lib_version_name ="1.0"
         navigation_version = "2.3.3"//navigation版本号，需要在dependencies和classpath保持一致
     }
 
     repositories {
-        maven{url 'http://maven.aliyun.com/nexus/content/groups/public/'}
-        maven{url 'http://maven.aliyun.com/nexus/content/repositories/jcenter/'}
+//        // 阿里云云效仓库：https://maven.aliyun.com/mvn/guide
+//        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+//        maven { url 'https://maven.aliyun.com/repository/google' }
+//        // 华为开源镜像：https://mirrors.huaweicloud.com
+//        maven { url 'https://repo.huaweicloud.com/repository/maven' }
+        // JitPack 远程仓库：https://jitpack.io
+//        maven { url 'https://jitpack.io' }
+//        // MavenCentral 远程仓库：https://mvnrepository.com
+//        mavenCentral()
         google()
-        jcenter{url "http://jcenter.bintray.com/"}
-        maven{url "https://jitpack.io"}
-        mavenCentral()
+        jcenter()
     }
     dependencies {
         classpath "com.android.tools.build:gradle:4.2.2"
@@ -27,17 +32,25 @@ buildscript {
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigation_version"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+        //koin注入框架
+        classpath "org.koin:koin-gradle-plugin:$koin_version"
+        //阿里 Arouter
+        classpath "com.alibaba:arouter-register:1.0.2"
     }
 }
+apply plugin: 'com.alibaba.arouter'
+apply plugin: 'koin' //koin依赖注入框架
 
 allprojects {
     repositories {
-        maven{url 'http://maven.aliyun.com/nexus/content/groups/public/'}
-        maven{url 'http://maven.aliyun.com/nexus/content/repositories/jcenter/'}
+//        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+//        maven { url 'https://maven.aliyun.com/repository/google' }
+//        maven { url 'https://repo.huaweicloud.com/repository/maven' }
+//        maven { url 'https://jitpack.io' }
+//        mavenCentral()
         google()
-        jcenter{url "http://jcenter.bintray.com/"}
-        maven{url "https://jitpack.io"}
-        mavenCentral()
+        jcenter()
+
     }
 }
 

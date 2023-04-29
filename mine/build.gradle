@@ -9,4 +9,5 @@ android {
 
 dependencies {
     //from dependencies.gradle
+    api project(path: ':service')
 }
