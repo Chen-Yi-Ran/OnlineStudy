@@ -21,7 +21,8 @@ dependencies {
     //from dependencies.gradle
     //others from dependencies.gradle
     api project(path: ':common')
-
+    implementation 'com.squareup.retrofit2:retrofit:2.6.3'
+    implementation 'com.squareup.retrofit2:converter-gson:2.7.0'
     //doki 调试辅助工具
     debugImplementation 'com.didichuxing.doraemonkit:dokitx:3.3.5'
     releaseImplementation 'com.didichuxing.doraemonkit:dokitx-no-op:3.3.5'

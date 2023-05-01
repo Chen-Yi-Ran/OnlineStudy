@@ -20,7 +20,7 @@ dependencies {
 
     //retrofit2
     //implementation有一个权限控制，直接依赖者才能调用 api有穿透性
-    api 'com.squareup.retrofit2:retrofit:2.9.0'
+    api 'com.squareup.retrofit2:retrofit:2.7.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 
     //glide

@@ -28,12 +28,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         super.initData()
     }
 
-    //将Fragment对象存储在map当中,map第一次初始化第二次会直接获取，减少复用
-    private val fragments = mapOf<Int, Fragment>(
-        INDEX_HOME to HomeFragment(),
-        INDEX_COURSE to CourseFragment(),
-        INDEX_STUDY to StudyFragment(),
-        INDEX_MINE to MineFragment()
+    //将Fragment对象存储在map当中,map第一次初始化第二次会直接获取，解决复用问题
+    private val fragments = mapOf<Int, ReFragment>(
+        INDEX_HOME to { HomeFragment() },//每次返回这个{ HomeFragment() }函数都是一个Fragment对象
+        INDEX_COURSE to { CourseFragment() },
+        INDEX_STUDY to { StudyFragment() },
+        INDEX_MINE to { MineFragment() }
     )
 
     override fun initView() {
@@ -69,13 +69,17 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
      */
     class MainViewPagerAdapter(
         fragmentActivity: FragmentActivity,
-        private val fragments: Map<Int, Fragment>
+        private val fragments: Map<Int, ReFragment>
     ) : FragmentStateAdapter(fragmentActivity) {
         override fun getItemCount() = fragments.size
 
         override fun createFragment(position: Int): Fragment {
-            return fragments[position] ?: error("请确保Fragments数据源和viewpager2的index匹配设置")
+            //因为fragments[position]是get这个ReFragment函数，需要invoke去执返回Fragment对象
+            return fragments[position] ?.invoke()?:throw IndexOutOfBoundsException("ViewPager接收参数index越界了")
         }
 
     }
+
 }
+//类型别名定义
+typealias ReFragment=() -> Fragment

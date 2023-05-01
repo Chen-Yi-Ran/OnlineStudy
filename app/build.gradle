@@ -22,6 +22,7 @@ dependencies {
     }
     //service公共基础模块
     implementation project(path: ':service')
+    implementation project(path: ':common')
     //今日头条的适配方案
     implementation 'me.jessyan:autosize:1.2.1'
 }
