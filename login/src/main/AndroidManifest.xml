@@ -1,9 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.login">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.login"
 
-    <application>
-        <activity android:name=".LoginActivity"
-            android:launchMode="singleTop">
+    >
+    <!--网络权限-->
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        tools:replace="android:icon, android:theme , android:label,android:name"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/module_name"
+        android:name=".LoginApplication"
+
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:theme="@style/Theme.OnlineStudy">
+        <activity
+            android:name=".LoginActivity"
+          >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

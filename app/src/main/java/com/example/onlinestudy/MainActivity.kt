@@ -17,7 +17,7 @@ import com.example.mine.MineFragment
 
 import com.example.onlinestudy.databinding.ActivityMainBinding
 import com.example.study.StudyFragment
-import kotlinx.android.synthetic.main.activity_main.*
+
 import java.lang.Error
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {

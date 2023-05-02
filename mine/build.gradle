@@ -5,6 +5,7 @@ if (singleModule.toBoolean()){
     apply plugin: 'com.android.library'
 }
 apply from: '../dependencies.gradle'
+apply plugin: 'kotlin-android'
 android {
 //from dependencies.gradle
     sourceSets {
@@ -29,4 +30,8 @@ android {
 dependencies {
     //from dependencies.gradle
     api project(path: ':service')
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
 }
