@@ -15,7 +15,6 @@ abstract class BaseApplication : Application(){
 
     override fun onCreate() {
         super.onCreate()
-
         startKoin {
             androidLogger(Level.ERROR) //log level error方法，保证这句话不出错不然不写
             //context

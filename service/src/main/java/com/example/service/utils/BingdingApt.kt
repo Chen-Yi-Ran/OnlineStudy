@@ -20,11 +20,10 @@ import com.example.service.R
 @BindingAdapter("app:srcCompat", requireAll = false)
 fun imgSrcCompat(iv: ImageView, src: Any?) {
     //如果src为空，设置默认图片
-    // val imgRes = src ?: R.drawable.icon_default_header
+     val imgRes = src ?: R.drawable.icon_default_header
     //如果String头为//img.cniao5.com，则在其前面拼接上https:
-
     Glide.with(iv)
-        .load(src)
+        .load(imgRes)
         .into(iv)
 }
 

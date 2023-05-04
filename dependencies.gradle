@@ -53,8 +53,7 @@ android {
 
     buildFeatures {
         dataBinding true
-        //启动ViewBinding,需要启用视图绑定的Module
-        viewBinding true
+
     }
 
 
@@ -95,10 +94,9 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0-beta01'
     kapt "androidx.lifecycle:lifecycle-common-java8:2.3.0-beta01"
 
-    implementation 'androidx.room:room-runtime:2.3.0-alpha02'
-    implementation 'androidx.room:room-common:2.3.0-alpha02'
-    implementation 'androidx.room:room-ktx:2.3.0-alpha02'
-    kapt "androidx.room:room-compiler:2.3.0-alpha02"
+    //room数据库
+    implementation "androidx.room:room-runtime:2.2.5"
+    kapt "androidx.room:room-compiler:2.2.5"
 
     implementation 'androidx.paging:paging-runtime:3.0.0-alpha07'
     implementation 'androidx.paging:paging-runtime-ktx:3.0.0-alpha07'
@@ -138,7 +136,7 @@ dependencies {
     implementation "org.koin:koin-androidx-ext:$koin_version" // Koin AndroidX Experimental features
 
     //ARouter 路由框架
-    implementation 'com.alibaba:arouter-api:1.5.1'
-    kapt 'com.alibaba:arouter-compiler:1.5.1'
+    api 'com.alibaba:arouter-api:1.5.0'
+    kapt 'com.alibaba:arouter-compiler:1.2.2'
 
 }

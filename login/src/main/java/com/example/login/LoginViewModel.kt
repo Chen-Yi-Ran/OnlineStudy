@@ -8,8 +8,7 @@ import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.ToastUtils
-import com.example.Model.Data
-import com.example.Model.LoginResponse
+
 import com.example.Model.LoginValue
 import com.example.common.model.SingleLiveData
 import com.example.repo.Repository

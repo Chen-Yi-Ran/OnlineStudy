@@ -8,7 +8,7 @@
     <variable
         name="info"
         type="androidx.databinding.ObservableField&lt;
-        com.example.widget.ItemSettingBean>" />
+       com.example.mine.widget.ItemSettingBean>" />
 
 </data>
 

@@ -1,24 +1,16 @@
 package com.example.onlinestudy
 
-import android.view.MenuItem
-import androidx.core.view.forEach
-import androidx.core.view.forEachIndexed
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.setupWithNavController
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import androidx.viewpager2.widget.ViewPager2
 import com.example.common.base.BaseActivity
 import com.example.common.widget.BnvVp2Mediator
 import com.example.course.CourseFragment
 import com.example.home.HomeFragment
-import com.example.mine.MineFragment
+import com.example.mine.ui.MineFragment
 
 import com.example.onlinestudy.databinding.ActivityMainBinding
 import com.example.study.StudyFragment
-
-import java.lang.Error
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
 

@@ -1,4 +1,4 @@
-package com.example.net
+package com.example.mine.net
 
 import android.util.Log
 import com.example.service.network.ServiceCreator

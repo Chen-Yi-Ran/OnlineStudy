@@ -1,15 +1,14 @@
-package com.example.ui
+package com.example.mine.ui
 
 
 import android.graphics.Color
-import android.widget.Toast
 import androidx.databinding.ObservableField
 import com.blankj.utilcode.util.ToastUtils
 import com.example.common.base.BaseActivity
 import com.example.mine.R
 
 import com.example.mine.databinding.ActivityMineBinding
-import com.example.widget.ItemSettingBean
+import com.example.mine.widget.ItemSettingBean
 
 class MineActivity : BaseActivity<ActivityMineBinding>() {
     override fun getLayoutRes()= R.layout.activity_mine

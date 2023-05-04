@@ -1,4 +1,4 @@
-package com.example.widget
+package com.example.mine.widget
 
 import android.content.Context
 import android.graphics.Color
@@ -175,8 +175,8 @@ class ItemSettingsView @JvmOverloads constructor(context: Context,
 
 @Keep
 data class ItemSettingBean(var iconRes: Any = R.drawable.ic_gift_card, //左边图标 有可能是url string, uri
-                           var title: String = "Title标题", //title标题
-                           var desc: String = "标题内容描述", //副标题，描述
+                           var title: String = " ", //title标题
+                           var desc: String = "", //副标题，描述
                            var titleColor: Int = R.color.colorPrimaryText, //title字的颜色
                            var descColor: Int = R.color.colorSecondaryText, //副标题字的颜色
                            var iconColor: Int = 0, //icon的颜色

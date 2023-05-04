@@ -38,8 +38,3 @@ class OkHttpUtil(context1: Context, connectTimeout: Int, writeTimeOut: Int, read
 
 
 }
-object NetWorkUtil{
-
-
-
-}

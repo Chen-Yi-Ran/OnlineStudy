@@ -1,7 +1,7 @@
 package com.example.repo
 
 import androidx.lifecycle.liveData
-import com.example.net.LoginNetWork
+import com.example.mine.net.LoginNetWork
 import kotlinx.coroutines.Dispatchers
 import java.lang.Exception
 import java.lang.RuntimeException
@@ -28,8 +28,8 @@ object Repository {
     fun loginAccount(username:String?,password:String?)= fire(Dispatchers.IO){
         val loginResponse=LoginNetWork.loginWanAndroid(username,password)
         if(loginResponse.errorCode==0){
-            val data=loginResponse.data
-            Result.success(data)
+          //  val data=loginResponse.data
+            Result.success(loginResponse)
         }else{
             Result.failure(RuntimeException("response errorMsg is${loginResponse.errorMsg}"))
         }
