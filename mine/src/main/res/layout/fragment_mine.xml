@@ -37,7 +37,7 @@
             app:layout_constraintStart_toStartOf="@id/v_bg_header_mine"
             app:layout_constraintTop_toTopOf="@id/v_bg_header_mine"
             app:shapeAppearanceOverlay="@style/circleImageStyle"
-            app:srcCompat="@{vm.liveUser.data.icon??@drawable/icon_default_header,default=@drawable/icon_default_header}"
+            app:srcCompat="@{@drawable/icon_default_header,default=@drawable/icon_default_header}"
             />
 
         <!--反引号是默认值,里面只能写英文-->
@@ -180,6 +180,7 @@
             app:backgroundTint="@color/colorWhite"
             app:cornerRadius="20dp"
             app:elevation="0.1dp"
+            android:visibility="@{vm.liveUser.data.username.length()>0?View.VISIBLE:View.GONE}"
             app:layout_constraintTop_toBottomOf="@id/tv_tips_mine"
             />
 

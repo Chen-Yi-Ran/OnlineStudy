@@ -1,16 +1,26 @@
 package com.example.mine.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.alibaba.android.arouter.launcher.ARouter
 import com.blankj.utilcode.util.LogUtils
 
 import com.example.common.base.BaseFragment
 import com.example.mine.R
 import com.example.mine.databinding.FragmentMineBinding
+
+import com.example.service.Net.NetWorkService
+import com.example.service.model.UserInfoResponse
+import com.example.service.network.ServiceCreator
 import com.example.service.repo.OnlineStudyDbHelper
+import com.example.service.repo.Repository
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MineFragment:BaseFragment() {
 
@@ -31,6 +41,18 @@ class MineFragment:BaseFragment() {
                 ARouter.getInstance().build("/login/login").navigation()
             }
 
+            //跳转userInfoFragment
+            ivUserIconMine.setOnClickListener {
+                LogUtils.d("执行了ivUserIconMine点击事件")
+                val info=viewModel.liveUserInfo.value
+                LogUtils.d("info${info}")
+                info?.let {
+                    val action=MineFragmentDirections
+                        .actionMineFragmentToUserInfoFragment(info)
+                    findNavController().navigate(action)
+                }
+            }
+
         }
     }
 
@@ -42,15 +64,34 @@ class MineFragment:BaseFragment() {
     override fun initData() {
         super.initData()
         LogUtils.d("执行到了")
-//
+//用户登录：当数据库查询数据发生变化的时候(在登录的时候就插入数据)观察数据
         OnlineStudyDbHelper.getLiveUserInfo(requireContext()).observerKt{
-
                 it->
             LogUtils.d("it${it}")
                   viewModel.liveUser.value=it
 
         }
-
     }
+
+    fun getUserInfo(){
+        val getUserInfoService= ServiceCreator.create(NetWorkService::class.java)
+        getUserInfoService.getUserInfo().enqueue(object : Callback<UserInfoResponse> {
+            override fun onResponse(
+                call: Call<UserInfoResponse>,
+                response: Response<UserInfoResponse>
+            ) {
+                val body=response.body()
+                LogUtils.d(body)
+                viewModel.liveUserInfo.value=body
+            }
+
+            override fun onFailure(call: Call<UserInfoResponse>, t: Throwable) {
+                LogUtils.d(t.message)
+            }
+
+        })
+    }
+
+
 
 }

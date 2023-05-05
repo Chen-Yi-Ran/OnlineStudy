@@ -1,7 +1,6 @@
 package com.example.service.repo
 
 import android.content.Context
-import android.util.Log
 import androidx.lifecycle.LiveData
 import com.blankj.utilcode.util.LogUtils
 import kotlinx.coroutines.Dispatchers
@@ -10,11 +9,16 @@ import kotlinx.coroutines.launch
 
 object OnlineStudyDbHelper {
 
+     var  id :Int = 0
+
     /*
     * 获取room数据表中存储的userInfo
     * return liveData观察者形式
     * liveData的形式不用单独声明到一个线程*/
-    fun getLiveUserInfo(context: Context): LiveData<UserInfo> = Online_Study_Database.getInstance(context).userDao.queryLiveUser(148145)
+    fun getLiveUserInfo(context: Context): LiveData<UserInfo> {
+        LogUtils.d(id)
+      return  Online_Study_Database.getInstance(context).userDao.queryLiveUser(148145)
+    }
 
     /*
     * 以普通数据对象的形式，获取userInfo
@@ -51,6 +55,8 @@ object OnlineStudyDbHelper {
         //GlobalScope.launch和应用周期保持一致，当应用程序结束也会一起结束
         GlobalScope.launch(Dispatchers.IO) {
             Online_Study_Database.getInstance(context).userDao.insertUser(userInfo)
+            id=userInfo.data.id
+
         }
     }
 

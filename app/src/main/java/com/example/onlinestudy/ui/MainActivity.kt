@@ -1,4 +1,4 @@
-package com.example.onlinestudy
+package com.example.onlinestudy.ui
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
@@ -7,7 +7,9 @@ import com.example.common.base.BaseActivity
 import com.example.common.widget.BnvVp2Mediator
 import com.example.course.CourseFragment
 import com.example.home.HomeFragment
+import com.example.mine.ui.MineContainerFragment
 import com.example.mine.ui.MineFragment
+import com.example.onlinestudy.R
 
 import com.example.onlinestudy.databinding.ActivityMainBinding
 import com.example.study.StudyFragment
@@ -25,7 +27,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         INDEX_HOME to { HomeFragment() },//每次返回这个{ HomeFragment() }函数都是一个Fragment对象
         INDEX_COURSE to { CourseFragment() },
         INDEX_STUDY to { StudyFragment() },
-        INDEX_MINE to { MineFragment() }
+        INDEX_MINE to { MineContainerFragment() }
     )
 
     override fun initView() {

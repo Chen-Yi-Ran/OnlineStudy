@@ -1,7 +1,7 @@
-package com.example.repo
+package com.example.service.repo
 
 import androidx.lifecycle.liveData
-import com.example.mine.net.LoginNetWork
+import com.example.service.Net.NetWork
 import kotlinx.coroutines.Dispatchers
 import java.lang.Exception
 import java.lang.RuntimeException
@@ -16,7 +16,7 @@ object Repository {
 
     fun registerAccount(username:String,password:String,rePassword:String)= fire(Dispatchers.IO){
 
-        val registerResponse=LoginNetWork.registerWanAndroid(username,password,rePassword)
+        val registerResponse=NetWork.registerWanAndroid(username,password,rePassword)
         if(registerResponse.errorCode==0){
             val data=registerResponse.data
             Result.success(data)
@@ -26,7 +26,7 @@ object Repository {
     }
 
     fun loginAccount(username:String?,password:String?)= fire(Dispatchers.IO){
-        val loginResponse=LoginNetWork.loginWanAndroid(username,password)
+        val loginResponse=NetWork.loginWanAndroid(username,password)
         if(loginResponse.errorCode==0){
           //  val data=loginResponse.data
             Result.success(loginResponse)
@@ -34,6 +34,16 @@ object Repository {
             Result.failure(RuntimeException("response errorMsg is${loginResponse.errorMsg}"))
         }
     }
+
+
+//    fun getUserInfo()= fire(Dispatchers.IO){
+//        val userInfoResponse=NetWork.getUserInfo()
+//        if(userInfoResponse.errorCode==0){
+//            Result.success(userInfoResponse)
+//        }else{
+//            Result.failure(RuntimeException("response errorMsg is${userInfoResponse.errorMsg}"))
+//        }
+//    }
 
 
     //新增一个fire()函数，使得每次只需要进行一次try-catch处理

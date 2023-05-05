@@ -1,4 +1,4 @@
-package com.example.mine.net
+package com.example.service.Net
 
 import android.util.Log
 import com.example.service.network.ServiceCreator
@@ -11,16 +11,19 @@ import kotlin.coroutines.resumeWithException
 import kotlin.coroutines.suspendCoroutine
 
 //定义一个统一的网络数据源访问入口，对所有网络请求的API进行封装
-object LoginNetWork {
+object NetWork {
 
-    private val registerService=ServiceCreator.create(LoginService::class.java)
-
+    private val registerService=ServiceCreator.create(NetWorkService::class.java)
     suspend fun registerWanAndroid(username:String,password:String,rePassword:String)
     = registerService.registerWanAndroid(username,password,rePassword).await()
 
-    private val loginService=ServiceCreator.create(LoginService::class.java)
+    private val loginService=ServiceCreator.create(NetWorkService::class.java)
     suspend fun loginWanAndroid(username:String?,password:String?)=
         loginService.loginWanAndroid(username, password).await()
+
+
+
+
 
 
     private suspend fun <T> Call<T>.await():T{

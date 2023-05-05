@@ -6,7 +6,7 @@
     <data>
         <variable
             name="info"
-            type="com.cniao5.mine.repo.UserInfoRspData" />
+            type="com.example.service.model.UserInfoResponse" />
 
 
     </data>
@@ -17,7 +17,7 @@
 
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+            android:id="@+id/toolbar_user_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/colorPrimary"
@@ -43,23 +43,23 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:background="@drawable/shape_info_bg"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_user_info" />
 
         <!--shapeAppearanceOverlay可以切换图形形状-->
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/imageView"
+            android:id="@+id/iv_icon_user_info"
             android:layout_width="100dp"
             android:layout_height="100dp"
             app:layout_constraintBottom_toBottomOf="@+id/v_bg_user_info"
             app:layout_constraintEnd_toEndOf="@+id/v_bg_user_info"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar"
-            app:srcCompat="@{info.logoUrl,default=@drawable/icon_default_header}"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_user_info"
+            app:srcCompat="@{info,default=@drawable/icon_default_header}"
             app:shapeAppearanceOverlay="@style/circleImageStyle"
             />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/textView"
+            android:id="@+id/tv_edit_icon_user_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -67,7 +67,7 @@
             android:textColor="@android:color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            app:layout_constraintTop_toBottomOf="@+id/iv_icon_user_info" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_item_user_info"
@@ -99,7 +99,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
-                    android:text="@{info.username??`Null`}"
+                    android:text="@{info.data.coinInfo.username??`Null`}"
                     app:layout_constraintStart_toEndOf="@+id/tv_pre_uname_user_info"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="测试用户名"
@@ -130,11 +130,11 @@
                         android:id="@+id/tv_company_user_info"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@{info.company??`Null`}"
+                        android:text="Google"
                         android:textColor="@color/colorSecondaryText"
                         app:layout_constraintBaseline_toBaselineOf="@id/tv_pre_company_user_info"
                         app:layout_constraintStart_toStartOf="@id/tv_uname_user_info"
-                        tools:text="菜鸟窝教育机构" />
+                        tools:text="Google" />
 
                     <View
                         android:id="@+id/v_div_2"
@@ -159,7 +159,7 @@
                         android:id="@+id/tv_position_user_info"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@{info.job??`Null`}"
+                        android:text="Android工程师"
                         android:textColor="@color/colorSecondaryText"
                         app:layout_constraintBaseline_toBaselineOf="@id/tv_pre_position_user_info"
                         app:layout_constraintStart_toStartOf="@id/tv_uname_user_info"
@@ -179,7 +179,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="工作年限:"
+                        android:text="积分:"
                         android:textColor="@color/colorPrimaryText"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/v_div_3" />
@@ -188,11 +188,11 @@
                         android:id="@+id/tv_experience_user_info"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@{info.workYears??`Null`}"
+                        android:text="@{String.valueOf(info.data.coinInfo.coinCount)??`Null`}"
                         android:textColor="@color/colorSecondaryText"
                         app:layout_constraintBaseline_toBaselineOf="@id/tv_pre_experience_user_info"
                         app:layout_constraintStart_toStartOf="@id/tv_uname_user_info"
-                        tools:text="1年" />
+                        tools:text="5" />
 
                     <View
                         android:id="@+id/v_div_4"
@@ -208,7 +208,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="个人介绍:"
+                        android:text="邮箱:"
                         android:textColor="@color/colorPrimaryText"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -218,18 +218,18 @@
                         android:id="@+id/tv_description_user_info"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@{info.desc??`Null`}"
+                        android:text="@{info.data.userInfo.email??`Null`}"
                         android:textColor="@color/colorSecondaryText"
                         app:layout_constraintBaseline_toBaselineOf="@id/tv_pre_description_user_info"
                         app:layout_constraintStart_toStartOf="@id/tv_uname_user_info"
-                        tools:text="描述的什么内容呢" />
+                        tools:text="6" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.cardview.widget.CardView>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/save_btn"
+            android:id="@+id/btnSaveUserInfo"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_margin="20dp"

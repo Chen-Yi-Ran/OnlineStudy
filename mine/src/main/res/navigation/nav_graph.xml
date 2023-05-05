@@ -14,17 +14,18 @@
         <action
             android:id="@+id/action_mineFragment_to_userInfoFragment"
             app:destination="@id/userInfoFragment" />
+
     </fragment>
 
     <fragment
         android:id="@+id/userInfoFragment"
-        android:name="com.serInfoFragment"
+        android:name="com.example.mine.ui.UserInfoFragment"
         android:label="UserInfoFragment"
         tools:layout="@layout/fragment_user_info"
         >
         <argument
             android:name="info"
-            app:argType="com.cniao5.mine.repo.UserInfoRspData" />
+            app:argType="com.example.service.model.UserInfoResponse" />
     </fragment>
 
 

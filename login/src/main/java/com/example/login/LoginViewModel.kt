@@ -2,7 +2,6 @@ package com.example.login
 
 import android.content.Context
 import android.view.View
-import android.widget.Toast
 import androidx.databinding.ObservableField
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
@@ -11,7 +10,7 @@ import com.blankj.utilcode.util.ToastUtils
 
 import com.example.Model.LoginValue
 import com.example.common.model.SingleLiveData
-import com.example.repo.Repository
+import com.example.service.repo.Repository
 
 //登录界面逻辑的ViewModel
 class LoginViewModel :ViewModel(){

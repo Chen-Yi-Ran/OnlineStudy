@@ -35,6 +35,7 @@ data class Data(
     val type: Int,
     val username: String
 )
+
 //2.dao层的定义
 @Dao
 interface UserDao{

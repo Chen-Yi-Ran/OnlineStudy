@@ -1,12 +1,13 @@
-package com.example.mine.net
+package com.example.service.Net
 
-import com.example.Model.LoginResponse
+import com.example.service.model.UserInfoResponse
+import com.example.service.repo.UserInfo
 import retrofit2.Call
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
+import retrofit2.http.GET
 import retrofit2.http.POST
-
-interface LoginService {
+interface NetWorkService {
 
     //登录
     @FormUrlEncoded
@@ -14,7 +15,7 @@ interface LoginService {
     fun loginWanAndroid(
         @Field("username") username: String?,
         @Field("password") password: String?
-    ): Call<LoginResponse>
+    ): Call<UserInfo>
 
 
     @POST("/user/register")
@@ -23,8 +24,9 @@ interface LoginService {
        @Field("username") username: String,
        @Field("password") password: String,
        @Field("repassword") repassowrd: String
-   ): Call<LoginResponse>
+   ): Call<UserInfo>
 
-
+    @GET("/user/lg/userinfo/json")
+    fun getUserInfo(): Call<UserInfoResponse>
 
 }
