@@ -1,5 +1,6 @@
 package com.example.service.Net
 
+import com.example.service.model.Data
 import com.example.service.model.UserInfoResponse
 import com.example.service.repo.UserInfo
 import retrofit2.Call

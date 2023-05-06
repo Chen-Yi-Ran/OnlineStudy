@@ -30,7 +30,8 @@ class OkHttpUtil(context1: Context, connectTimeout: Int, writeTimeOut: Int, read
         val builder =
             OkHttpClient.Builder().connectTimeout(connectTimeout.toLong(), TimeUnit.SECONDS)
                 .writeTimeout(writeTimeOut.toLong(), TimeUnit.SECONDS)
-                .readTimeout(readTimeout.toLong(), TimeUnit.SECONDS);
+                .readTimeout(readTimeout.toLong(), TimeUnit.SECONDS)
+//                .addInterceptor(HostInterceptor())
         builder.addNetworkInterceptor(KtHttpLogInterceptor())
         client = builder.addInterceptor(ReceivedCookiesInterceptor(context)).build()
         okHttpClient = builder.addInterceptor(AddCookiesInterceptor(context)).build()

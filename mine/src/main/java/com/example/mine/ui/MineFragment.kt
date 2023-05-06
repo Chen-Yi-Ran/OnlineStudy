@@ -26,7 +26,7 @@ class MineFragment:BaseFragment() {
 
 
     private  val viewModel: MineViewModel by viewModels { defaultViewModelProviderFactory }
-
+    private  var info:UserInfoResponse?=null
     override fun getLayoutRes()= R.layout.fragment_mine
 
     override fun bindView(view: View, savedInstanceState: Bundle?): ViewDataBinding {
@@ -40,18 +40,23 @@ class MineFragment:BaseFragment() {
                 OnlineStudyDbHelper.deleteUserInfo(requireContext())
                 ARouter.getInstance().build("/login/login").navigation()
             }
+//
 
-            //跳转userInfoFragment
-            ivUserIconMine.setOnClickListener {
-                LogUtils.d("执行了ivUserIconMine点击事件")
-                val info=viewModel.liveUserInfo.value
-                LogUtils.d("info${info}")
-                info?.let {
-                    val action=MineFragmentDirections
-                        .actionMineFragmentToUserInfoFragment(info)
-                    findNavController().navigate(action)
+                //跳转userInfoFragment
+                ivUserIconMine.setOnClickListener {
+                   if(info!=null&&viewModel.liveUser.value!=null){
+                       LogUtils.d("执行了ivUserIconMine点击事件")
+//                val info=viewModel.liveUserInfo.value
+                       //         LogUtils.d("info${info}")
+                       info?.let {
+                           val action=MineFragmentDirections
+                               .actionMineFragmentToUserInfoFragment(info!!)
+                           findNavController().navigate(action)
+                       }
+                   }
                 }
-            }
+
+
 
         }
     }
@@ -64,6 +69,8 @@ class MineFragment:BaseFragment() {
     override fun initData() {
         super.initData()
         LogUtils.d("执行到了")
+        val data=viewModel.getUserInfo()
+        LogUtils.d(data)
 //用户登录：当数据库查询数据发生变化的时候(在登录的时候就插入数据)观察数据
         OnlineStudyDbHelper.getLiveUserInfo(requireContext()).observerKt{
                 it->
@@ -71,27 +78,39 @@ class MineFragment:BaseFragment() {
                   viewModel.liveUser.value=it
 
         }
-    }
 
-    fun getUserInfo(){
-        val getUserInfoService= ServiceCreator.create(NetWorkService::class.java)
-        getUserInfoService.getUserInfo().enqueue(object : Callback<UserInfoResponse> {
-            override fun onResponse(
-                call: Call<UserInfoResponse>,
-                response: Response<UserInfoResponse>
-            ) {
-                val body=response.body()
-                LogUtils.d(body)
-                viewModel.liveUserInfo.value=body
+        //监听个人信息页面数据
+        viewModel.loginLiveData.observe(this,{
+                result->
+            val data=result.getOrNull()
+            LogUtils.d(data)
+            if(data!=null){
+                LogUtils.d(data)
+                info=data
+            }else{
+                result.exceptionOrNull()?.printStackTrace()
             }
-
-            override fun onFailure(call: Call<UserInfoResponse>, t: Throwable) {
-                LogUtils.d(t.message)
-            }
-
         })
     }
 
+//    fun getUserInfo(){
+//        val getUserInfoService= ServiceCreator.create(NetWorkService::class.java)
+//        getUserInfoService.getUserInfo().enqueue(object : Callback<UserInfoResponse> {
+//            override fun onResponse(
+//                call: Call<UserInfoResponse>,
+//                response: Response<UserInfoResponse>
+//            ) {
+//                val body=response.body()
+//                LogUtils.d(body)
+//                viewModel.liveUserInfo.value=body
+//            }
+//
+//            override fun onFailure(call: Call<UserInfoResponse>, t: Throwable) {
+//                LogUtils.d(t.message)
+//            }
+//
+//        })
+    }
 
 
-}
+

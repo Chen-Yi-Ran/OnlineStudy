@@ -1,7 +1,11 @@
 package com.example.service.Net
 
 import android.util.Log
+import com.blankj.utilcode.util.LogUtils
+import com.example.service.model.UserInfoResponse
 import com.example.service.network.ServiceCreator
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -22,7 +26,8 @@ object NetWork {
         loginService.loginWanAndroid(username, password).await()
 
 
-
+    private val getUserInfoService=ServiceCreator.create(NetWorkService::class.java)
+    suspend fun getUserInfoWanAndroid()= getUserInfoService.getUserInfo().await()
 
 
 
@@ -46,4 +51,8 @@ object NetWork {
             })
         }
     }
+
+
+
+
 }
