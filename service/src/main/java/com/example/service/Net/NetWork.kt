@@ -29,7 +29,9 @@ object NetWork {
     private val getUserInfoService=ServiceCreator.create(NetWorkService::class.java)
     suspend fun getUserInfoWanAndroid()= getUserInfoService.getUserInfo().await()
 
-
+//    private val getListProject=ServiceCreator.create(NetWorkService::class.java)
+//    fun getListProjectWanAndroid(page:Int)=
+//        getListProject.getListProject(page)
 
     private suspend fun <T> Call<T>.await():T{
         return suspendCoroutine {

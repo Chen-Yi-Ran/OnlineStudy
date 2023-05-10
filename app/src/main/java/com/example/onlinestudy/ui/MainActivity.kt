@@ -14,6 +14,7 @@ import com.example.onlinestudy.R
 import com.example.onlinestudy.databinding.ActivityMainBinding
 import com.example.study.StudyFragment
 
+
 class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     override fun getLayoutRes() = R.layout.activity_main

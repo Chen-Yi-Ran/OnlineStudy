@@ -4,10 +4,7 @@ import androidx.lifecycle.liveData
 import com.blankj.utilcode.util.LogUtils
 import com.example.service.Net.NetWork
 import com.example.service.base.BaseRepository
-import com.example.service.model.Data
-import com.example.service.model.UserInfoResponse
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 import java.lang.Exception
 import java.lang.RuntimeException
 import kotlin.coroutines.CoroutineContext
@@ -58,6 +55,11 @@ object Repository :BaseRepository() {
             Result.failure(RuntimeException("response errorMsg is${userInfoResponse.errorMsg}"))
         }
     }
+
+
+//      fun getListProject(page:Int):ListProjectResponse {
+//       return NetWork.getListProjectWanAndroid(page)
+//    }
 
 //    suspend fun  request(call: suspend () -> UserInfoResponse): UserInfoResponse {
 //        LogUtils.d( "NetWork接口返回数据---------->${this}")

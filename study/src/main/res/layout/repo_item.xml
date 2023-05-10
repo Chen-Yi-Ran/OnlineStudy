@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="220dp"
+    android:padding="10dp"
+    android:orientation="vertical">
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="200dp"
+        android:id="@+id/image"
+        android:scaleType="fitXY"
+        android:layout_gravity="center_vertical"
+        android:layout_marginEnd="5dp"
+        android:src="@drawable/default_icon"
+        tools:ignore="ContentDescription" />
+    <TextView
+        android:id="@+id/name_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:maxLines="1"
+        android:layout_toRightOf="@id/image"
+        android:ellipsize="end"
+        android:textColor="#5194fd"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:text="你的名字"
+        />
+
+    <TextView
+        android:id="@+id/description_text"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_toRightOf="@id/image"
+        android:layout_below="@id/name_text"
+        tools:text="描述"
+        android:maxLines="4"
+        android:ellipsize="end"
+        />
+
+
+
+
+
+        <TextView
+            android:id="@+id/niceShareDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_view"
+            android:layout_marginTop="-20dp"
+            tools:text="分享日期"
+            android:layout_toRightOf="@id/image"
+            />
+<View
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+    android:id="@+id/text_view"
+    android:background="@color/white"
+    android:layout_below="@id/image"
+    />
+
+</RelativeLayout>

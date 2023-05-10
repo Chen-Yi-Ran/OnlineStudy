@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--tabRippleColor选中时的波浪tabTextColor未选中时的
+    颜色tabSelectedTextColor选中时的颜色scrollable滑动-->
+    <com.google.android.material.tabs.TabLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:id="@+id/tab_layout"
+        app:tabBackground="@color/colorPrimaryDark"
+        app:tabMode="scrollable"
+        />
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:id="@+id/view_pager"
+        />
+</LinearLayout>

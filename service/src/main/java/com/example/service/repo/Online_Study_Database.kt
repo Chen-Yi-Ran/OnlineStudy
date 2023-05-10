@@ -26,6 +26,7 @@ data class Data(
     val collectIds: List<Any>,
     val email: String,
     val icon: String,
+    @SuppressWarnings(RoomWarnings.PRIMARY_KEY_FROM_EMBEDDED_IS_DROPPED)
     @PrimaryKey
     val id: Int,
     val nickname: String,
