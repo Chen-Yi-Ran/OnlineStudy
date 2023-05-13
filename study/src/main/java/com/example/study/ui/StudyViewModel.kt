@@ -23,7 +23,7 @@ class StudyViewModel:BaseViewModel() {
 
     //获取项目列表数据
     fun getPagingData(id: Int): Flow<PagingData<ListProjectResponse.Data.DataX>> {
-        LogUtils.d(Repository.getPagingData(id))
+//        LogUtils.d(Repository.getPagingData(id))
         return Repository.getPagingData(id).cachedIn(viewModelScope)
     }
 
@@ -52,9 +52,9 @@ class StudyViewModel:BaseViewModel() {
                 }
 
                 override fun onNext(category: CategoryProject?) {
-                    LogUtils.d("http返回：", category.toString() + "");
+                  //  LogUtils.d("http返回：", category.toString() + "");
                     launchUI {
-                        LogUtils.d(category)
+                     //   LogUtils.d(category)
                         if (category != null) {
                             studyPagerAdapter.setCategories(category)
                         }

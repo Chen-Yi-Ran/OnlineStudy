@@ -39,7 +39,7 @@ class StudyFragment : Fragment() {
         val mViewPager= view?.findViewById<ViewPager>(R.id.view_pager)
         mTableLayout?.setupWithViewPager(mViewPager)
         mViewPager?.adapter=studyPagerAdapter
-        LogUtils.d("mTableLayout${mTableLayout}mViewPager${mViewPager}")
+      //  LogUtils.d("mTableLayout${mTableLayout}mViewPager${mViewPager}")
         return view
         }
     lateinit var studyPagerAdapter:StudyPagerAdapter

@@ -50,7 +50,7 @@ class RepoAdapter : PagingDataAdapter<ListProjectResponse.Data.DataX, RepoAdapte
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val repo = getItem(position)
-        LogUtils.d("这是repo${repo}")
+      //  LogUtils.d("这是repo${repo}")
         if (repo != null) {
             holder.name.text =repo.title
             holder.shareUser.text = repo.desc

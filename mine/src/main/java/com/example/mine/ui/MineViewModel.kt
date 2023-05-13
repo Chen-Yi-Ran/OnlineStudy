@@ -25,13 +25,13 @@ val liveUserInfo= SingleLiveData<UserInfoResponse>()
 //
 val loginLiveData=Transformations.switchMap(liveUserInfo){
         _->
-    LogUtils.d("Transformations经来了${ Repository.getUserInfo()}")
+   // LogUtils.d("Transformations经来了${ Repository.getUserInfo()}")
     val userInfo = Repository.getUserInfo()
     userInfo
 }
 
 fun getUserInfo():UserInfoResponse? {
-    LogUtils.d("Repository.getUserInfo().value?.getOrNull()${Repository.getUserInfo()}")
+   // LogUtils.d("Repository.getUserInfo().value?.getOrNull()${Repository.getUserInfo()}")
     liveUserInfo.value=Repository.getUserInfo().value?.getOrNull()
     return liveUserInfo.value
     }

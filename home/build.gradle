@@ -30,4 +30,7 @@ android {
 dependencies {
     //from dependencies.gradle
     api project(path: ':service')
+    //轮播图
+    implementation 'io.github.youth5201314:banner:2.2.2'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 }

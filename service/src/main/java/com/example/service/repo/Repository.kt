@@ -28,10 +28,11 @@ object Repository :BaseRepository() {
             }
         }
 
+    //注册信息
     fun loginAccount(username: String?, password: String?) = fire(Dispatchers.IO) {
 
         val loginResponse = NetWork.loginWanAndroid(username, password)
-        LogUtils.d(loginResponse)
+     //   LogUtils.d(loginResponse)
         if (loginResponse.errorCode == 0) {
             //  val data=loginResponse.data
             Result.success(loginResponse)
@@ -46,9 +47,10 @@ object Repository :BaseRepository() {
 
 
 
+    //个人信息
     fun getUserInfo()= fire(Dispatchers.IO){
         val userInfoResponse=NetWork.getUserInfoWanAndroid()
-        LogUtils.d(userInfoResponse)
+     //   LogUtils.d(userInfoResponse)
         if(userInfoResponse.errorCode==0){
             Result.success(userInfoResponse)
         }else{
@@ -56,6 +58,56 @@ object Repository :BaseRepository() {
         }
     }
 
+    //轮播图信息
+    fun getBannerInfo()= fire(Dispatchers.IO){
+        val bannerInfoResponse=NetWork.getBannerInfoWanAndroid()
+//        LogUtils.d(bannerInfoResponse)
+        if(bannerInfoResponse.errorCode==0){
+            Result.success(bannerInfoResponse)
+        }else{
+            Result.failure(RuntimeException("response errorMsg is${bannerInfoResponse.errorMsg}"))
+        }
+    }
+
+    //收藏站内信息
+    fun addCollectStaticInfo(id:Int)= fire(Dispatchers.IO){
+        val addCollectInfoResponse=NetWork.getCollectStaticInfoWanAndroid(id)
+        LogUtils.d(id)
+        LogUtils.d(addCollectInfoResponse)
+        if(addCollectInfoResponse.errorCode==0){
+            Result.success(addCollectInfoResponse)
+        }else{
+            Result.failure(RuntimeException("response errorMsg is${addCollectInfoResponse.errorMsg}"))
+        }
+    }
+
+    //收藏站外信息
+    fun addCollectOutSideInfo(title:String,author:String,link:String)= fire(Dispatchers.IO){
+        val addCollectInfoResponse=NetWork.getCollectOutSideInfoWanAndroid(title, author, link)
+        LogUtils.d(addCollectInfoResponse)
+        if(addCollectInfoResponse.errorCode==0){
+            Result.success(addCollectInfoResponse)
+        }else{
+            Result.failure(RuntimeException("response errorMsg is${addCollectInfoResponse.errorMsg}"))
+        }
+    }
+
+    //获取首页信息列表
+    fun getHomeListInfo(page:Int)= fire(Dispatchers.IO){
+        val getHomeListResponse=NetWork.getHomeListInfoWanAndroid(page)
+        LogUtils.d(getHomeListResponse)
+        if(getHomeListResponse.errorCode==0){
+            LogUtils.d(getHomeListResponse)
+            Result.success(getHomeListResponse)
+        }else{
+            LogUtils.d(getHomeListResponse.errorMsg)
+            Result.failure(RuntimeException("response errorMsg is${getHomeListResponse.errorMsg}"))
+        }
+    }
+
+
+
+    //收藏文章列表
 
 //      fun getListProject(page:Int):ListProjectResponse {
 //       return NetWork.getListProjectWanAndroid(page)

@@ -44,9 +44,9 @@ class MineFragment:BaseFragment() {
 
                 //跳转userInfoFragment
                 ivUserIconMine.setOnClickListener {
-                    LogUtils.d("info${info}viewModel.liveUser.value${viewModel.liveUser.value}")
+               //     LogUtils.d("info${info}viewModel.liveUser.value${viewModel.liveUser.value}")
                    if(info!=null&&viewModel.liveUser.value!=null){
-                       LogUtils.d("执行了ivUserIconMine点击事件")
+                //       LogUtils.d("执行了ivUserIconMine点击事件")
 //                val info=viewModel.liveUserInfo.value
                        //         LogUtils.d("info${info}")
                        info?.let {

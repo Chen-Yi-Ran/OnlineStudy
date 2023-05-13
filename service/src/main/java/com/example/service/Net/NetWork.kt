@@ -32,6 +32,27 @@ object NetWork {
 //    private val getListProject=ServiceCreator.create(NetWorkService::class.java)
 //    fun getListProjectWanAndroid(page:Int)=
 //        getListProject.getListProject(page)
+    private val getBannerInfoService=ServiceCreator.create(NetWorkService::class.java)
+    suspend fun getBannerInfoWanAndroid()= getBannerInfoService.getBannerInfo().await()
+
+
+    private val getCollectOutSideWanAndroid=ServiceCreator.create(NetWorkService::class.java)
+    suspend fun getCollectOutSideInfoWanAndroid(title:String,author:String,link:String)=
+        getCollectOutSideWanAndroid.addCollectOutsideArticle(title,author, link).await()
+
+    private val getCollectStaticWanAndroid=ServiceCreator.create(NetWorkService::class.java)
+    suspend fun getCollectStaticInfoWanAndroid(id:Int)
+    =getCollectStaticWanAndroid.addCollectArticle(id).await()
+
+    private val getCollectWanAndroid=ServiceCreator.create(NetWorkService::class.java)
+    suspend fun getCollectIndoWanAndroid(page:Int)
+    =getCollectWanAndroid.getLikeList(page).await()
+
+    private val getHomeListWanAndroid=ServiceCreator.create(NetWorkService::class.java)
+    suspend fun getHomeListInfoWanAndroid(page: Int)= getHomeListWanAndroid.getHomeList(page).await()
+
+
+
 
     private suspend fun <T> Call<T>.await():T{
         return suspendCoroutine {

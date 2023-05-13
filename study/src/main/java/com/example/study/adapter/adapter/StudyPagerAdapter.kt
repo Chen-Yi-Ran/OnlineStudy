@@ -34,6 +34,6 @@ class StudyPagerAdapter :FragmentPagerAdapter{
        val data=categories.data
         categoriesList.addAll(data)
         notifyDataSetChanged()
-        LogUtils.d("进来了")
+       // LogUtils.d("进来了")
     }
 }

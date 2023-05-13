@@ -25,6 +25,8 @@ buildscript {
 //        mavenCentral()
         google()
         jcenter()
+        //轮播图
+        maven { url "https://s01.oss.sonatype.org/content/groups/public" }
     }
     dependencies {
         classpath "com.android.tools.build:gradle:4.2.2"
