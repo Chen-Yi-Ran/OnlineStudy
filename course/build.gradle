@@ -22,10 +22,17 @@ android {
         if (singleModule.toBoolean()){
             applicationId "com.example.course"
         }
+        ndk {
+            abiFilters "armeabi-v7a","arm64-v8a"
+        }
     }
 }
 
 dependencies {
     //from dependencies.gradle
-    api project(path: ':common')
+    api project(path: ':service')
+    implementation project(':Aliyunplayer:player_demo')
+    implementation project(path: ':Aliyunplayer:AlivcPlayerTools')
+    //添加到此处
+    implementation 'com.android.support:multidex:1.0.3'
 }

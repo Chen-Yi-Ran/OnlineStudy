@@ -1,9 +1,7 @@
 package com.example.service.Net
 
 
-import com.example.service.model.BannerResponse
-import com.example.service.model.HomeResponse
-import com.example.service.model.UserInfoResponse
+import com.example.service.model.*
 import com.example.service.repo.UserInfo
 import retrofit2.Call
 import retrofit2.http.*
@@ -87,4 +85,12 @@ interface NetWorkService {
     fun getHomeList(
         @Path("page") page: Int
     ): Call<HomeResponse>
+
+
+    /**
+     * 教程列表
+     * https://www.wanandroid.com/chapter/547/sublist/json
+     */
+    @GET("chapter/547/sublist/json")
+    fun getSublist():Call<SubListResponse>
 }

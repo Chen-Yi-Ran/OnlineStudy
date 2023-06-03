@@ -105,6 +105,19 @@ object Repository :BaseRepository() {
         }
     }
 
+    //获取教程信息列表
+    fun getCourseListInfo()= fire(Dispatchers.IO){
+        val getCourseResponse=NetWork.getCourseListInfoWanAndroid()
+        LogUtils.d(getCourseResponse)
+        if(getCourseResponse.errorCode==0){
+            LogUtils.d(getCourseResponse)
+            Result.success(getCourseResponse)
+        }else{
+            LogUtils.d(getCourseResponse.errorMsg)
+            Result.failure(RuntimeException("response errorMsg is${getCourseResponse.errorMsg}"))
+        }
+    }
+
 
 
     //收藏文章列表

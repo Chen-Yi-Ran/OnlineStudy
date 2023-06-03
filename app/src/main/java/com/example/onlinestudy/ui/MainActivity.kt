@@ -8,7 +8,6 @@ import com.example.common.widget.BnvVp2Mediator
 import com.example.course.CourseFragment
 import com.example.home.HomeFragment
 import com.example.mine.ui.MineContainerFragment
-import com.example.mine.ui.MineFragment
 import com.example.onlinestudy.R
 
 import com.example.onlinestudy.databinding.ActivityMainBinding
@@ -48,9 +47,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     }
 
-    override fun initConfig() {
-        super.initConfig()
-    }
+
 
     companion object {
         const val INDEX_HOME = 0//首页home对应的索引位置

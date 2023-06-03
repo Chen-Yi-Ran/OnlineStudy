@@ -21,7 +21,6 @@ abstract class BaseActivity<ActBinding:ViewDataBinding> :AppCompatActivity{
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
        mBinding= bindView<ActBinding>(getLayoutRes())
-        initConfig()
         initView()
         initData()
     }
@@ -46,10 +45,6 @@ abstract class BaseActivity<ActBinding:ViewDataBinding> :AppCompatActivity{
     }
 
 
-    //open表示可被子类重写
-    open fun initConfig() {
-
-    }
 
     override fun onDestroy() {
         super.onDestroy()

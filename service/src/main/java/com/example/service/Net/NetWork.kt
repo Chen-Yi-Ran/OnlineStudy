@@ -51,6 +51,8 @@ object NetWork {
     private val getHomeListWanAndroid=ServiceCreator.create(NetWorkService::class.java)
     suspend fun getHomeListInfoWanAndroid(page: Int)= getHomeListWanAndroid.getHomeList(page).await()
 
+    private val getCourseListWanAndroid=ServiceCreator.create(NetWorkService::class.java)
+    suspend fun getCourseListInfoWanAndroid()= getCourseListWanAndroid.getSublist().await()
 
 
 

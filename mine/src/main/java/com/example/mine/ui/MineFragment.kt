@@ -46,7 +46,7 @@ class MineFragment:BaseFragment() {
                 ivUserIconMine.setOnClickListener {
                //     LogUtils.d("info${info}viewModel.liveUser.value${viewModel.liveUser.value}")
                    if(info!=null&&viewModel.liveUser.value!=null){
-                //       LogUtils.d("执行了ivUserIconMine点击事件")
+                       LogUtils.d("执行了ivUserIconMine点击事件")
 //                val info=viewModel.liveUserInfo.value
                        //         LogUtils.d("info${info}")
                        info?.let {
@@ -56,9 +56,6 @@ class MineFragment:BaseFragment() {
                        }
                    }
                 }
-
-
-
         }
     }
 
@@ -69,6 +66,8 @@ class MineFragment:BaseFragment() {
 
     override fun initData() {
         super.initData()
+        //TODO：需要对登录状态进行判断,不然的话你没有登录，但是之前登录的时候到时数据库查询得到数据就会将查询到的数据赋给viewModel.liveUser.value
+        //从而监听数据
         LogUtils.d("执行到了")
         val data=viewModel.getUserInfo()
         LogUtils.d(data)

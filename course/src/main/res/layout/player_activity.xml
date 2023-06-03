@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+
+        <variable
+            name="vm"
+            type="com.example.course.CourseViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:title="课程播放"
+            android:background="@color/colorPrimary"
+            app:titleTextColor="@color/white"
+            />
+        <LinearLayout
+            android:id="@+id/frame_layout"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:id="@+id/frame_layout2"
+                android:layout_height="wrap_content"
+                >
+
+                <com.example.course.widget.CustomNestedScrollView
+                    android:id="@+id/nestedscrollview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:id="@+id/linear_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <!--                  <com.aliyun.player.alivcplayerexpand.widget.AliyunVodPlayerView-->
+                        <!--                      android:id="@+id/video_view"-->
+                        <!--                      android:layout_width="match_parent"-->
+                        <!--                      android:layout_height="200dp" />-->
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="事件指的是屏幕触发事件——即Android中的TouchEvent/MotionEvent。每一次我们触摸屏幕，都会产生一连串的触摸事件，这些一连串的触摸事件合起来就是一个触摸事件序列。
+触摸事件在Android官方API中由类MotionEvent来描述，
+不同的触摸事件对应不同的事件类型。事件类型分别有ACTION_DOWN
+、ACTION_UP、ACTION_MOVE、ACTION_CANCEL。
+那什么叫分发呢？我们都知道Android是由View树进行渲染的
+。假设屏幕坐标为（11，11）的区域既属于一个LinearLayout
+，又属于LinearLayout下的一个Button，那我这次触碰所产生的触摸事件，是该给LinearLayout还是Button呢？当然，我们很确定这次触摸事件最终会被Button所处理。那触摸事件是怎么给到Button的呢？需要经过LinearLayout吗？怎样能让Button不处理呢？这就需要我们了解触摸事件（后文统称为事件）在View树上传递与消费的过程，这就是事件的分发。
+"                          android:textSize="20sp"
+                            />
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="300dp"
+                            android:src="@drawable/text"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="之前有提到，只有ViewGroup才会有onInterceptTouchEvent方法。为什么呢？因为我们可以从上面的几个流程图中看到，Activity的dispatchTouchEvent方法在返回false时，事件会分发到Activity的onTouchEvent方法。View的dispatchTouchEvent方法在返回super时，事件也同样能分发到View的onTouchEvent方法。而ViewGroup的dispatchTouchEvent方法在返回false和super时是将事件往下分发，在返回true时是直接消费，通过改变dispatchTouchEvent方法的返回值根本不能直接分发到自己的onTouchEvent方法。所以针对ViewGroup会有一个onInterceptTouchEvent方法，来让它可以选择将事件分发给自己的onTouchEvent方法。
+"
+                            android:textSize="20sp"
+                            />
+                    </LinearLayout>
+                </com.example.course.widget.CustomNestedScrollView>
+            </FrameLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

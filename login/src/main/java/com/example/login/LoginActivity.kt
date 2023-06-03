@@ -5,7 +5,6 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.blankj.utilcode.util.LogUtils
-import com.blankj.utilcode.util.ToastUtils
 import com.example.common.base.BaseActivity
 import com.example.common.ktx.context
 import com.example.login.databinding.ActivityLoginBinding
@@ -34,7 +33,6 @@ class LoginActivity :BaseActivity<ActivityLoginBinding>() {
                 Toast.makeText(this,"无法成功获取账号信息",Toast.LENGTH_LONG).show()
                 result.exceptionOrNull()?.printStackTrace()
             }
-
         })
     }
 
@@ -54,9 +52,6 @@ class LoginActivity :BaseActivity<ActivityLoginBinding>() {
 
     }
 
-    override fun initConfig() {
-        super.initConfig()
-    }
 
     override fun onDestroy() {
         super.onDestroy()
