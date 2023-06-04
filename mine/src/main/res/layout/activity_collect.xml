@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    >
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+
+        android:id="@+id/coordinatorLayout"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/toolbar_collect"
+                android:fitsSystemWindows="false"
+                app:layout_constraintTop_toTopOf="parent"
+                app:title="我的收藏"
+                android:background="@color/colorPrimary"
+                app:titleTextColor="@color/white"
+                app:layout_constraintBottom_toTopOf="@id/recycler_collect"
+                />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <!-- 其他布局元素 -->
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <androidx.recyclerview.widget.RecyclerView
+
+        android:id="@+id/recycler_collect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        />
+</LinearLayout>
+
+
+

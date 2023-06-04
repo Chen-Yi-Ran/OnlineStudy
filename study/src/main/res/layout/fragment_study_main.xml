@@ -9,10 +9,11 @@
     颜色tabSelectedTextColor选中时的颜色scrollable滑动-->
     <com.google.android.material.tabs.TabLayout
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:id="@+id/tab_layout"
         app:tabBackground="@color/colorPrimaryDark"
         app:tabMode="scrollable"
+        app:tabSelectedTextColor="@color/white"
         />
     <androidx.viewpager.widget.ViewPager
         android:layout_width="match_parent"

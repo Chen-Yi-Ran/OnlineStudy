@@ -24,7 +24,13 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent">
-
+<androidx.appcompat.widget.Toolbar
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:title="首页"
+    android:background="@color/colorPrimary"
+    app:titleTextColor="@color/white"
+    />
         <com.youth.banner.Banner
             android:id="@+id/banner"
             android:layout_width="match_parent"

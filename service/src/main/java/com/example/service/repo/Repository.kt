@@ -4,6 +4,7 @@ import androidx.lifecycle.liveData
 import com.blankj.utilcode.util.LogUtils
 import com.example.service.Net.NetWork
 import com.example.service.base.BaseRepository
+import com.example.service.model.CollectListResponse
 import kotlinx.coroutines.Dispatchers
 import java.lang.Exception
 import java.lang.RuntimeException
@@ -122,9 +123,18 @@ object Repository :BaseRepository() {
 
     //收藏文章列表
 
-//      fun getListProject(page:Int):ListProjectResponse {
-//       return NetWork.getListProjectWanAndroid(page)
-//    }
+      fun getCollectListInfo(page:Int)= fire(Dispatchers.IO) {
+          val getCollectResponse=NetWork.getCollectIndoWanAndroid(page)
+          LogUtils.d(getCollectResponse)
+          if(getCollectResponse.errorCode==0){
+              LogUtils.d(getCollectResponse)
+              Result.success(getCollectResponse)
+          }else{
+              LogUtils.d(getCollectResponse.errorMsg)
+              Result.failure(RuntimeException("response errorMsg is${getCollectResponse.errorMsg}"))
+          }
+
+    }
 
 //    suspend fun  request(call: suspend () -> UserInfoResponse): UserInfoResponse {
 //        LogUtils.d( "NetWork接口返回数据---------->${this}")

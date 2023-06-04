@@ -6,7 +6,6 @@ import android.view.View
 import android.widget.Toast
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.blankj.utilcode.util.LogUtils
@@ -15,15 +14,12 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.example.common.base.BaseFragment
 import com.example.common.utils.MySizeUtils
-import com.example.home.adapter.FooterAdapter
 import com.example.home.adapter.HomeAdapter
 import com.example.home.databinding.FragmentHomeBinding
 import com.example.service.model.BannerResponse
 import com.youth.banner.adapter.BannerImageAdapter
 import com.youth.banner.holder.BannerImageHolder
 import com.youth.banner.indicator.CircleIndicator
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
 
 
 class HomeFragment : BaseFragment() , HomeAdapter.onLikeItemClickListener {

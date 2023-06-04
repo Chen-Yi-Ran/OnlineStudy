@@ -74,7 +74,7 @@
             android:drawableTop="@drawable/icon_money"
             android:drawablePadding="10dp"
             android:gravity="center"
-            android:text="我的订单"
+            android:text="我的积分"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@id/v_bg_header_mine"
             app:layout_constraintEnd_toStartOf="@id/tv_coupon_mine"
@@ -111,14 +111,14 @@
             />
 
         <com.example.mine.widget.ItemSettingsView
-            android:id="@+id/isv_share_sale_mine"
+            android:id="@+id/isv_share_collect_mine"
             android:layout_width="match_parent"
             android:layout_height="46dp"
             android:layout_marginTop="0.5dp"
             android:background="@color/colorWhite"
             app:icon="@drawable/ic_gift_share"
             app:layout_constraintTop_toBottomOf="@id/isv_study_card_mine"
-            app:title="分销中心"
+            app:title="我的收藏"
             />
 
         <com.example.mine.widget.ItemSettingsView
@@ -128,7 +128,7 @@
             android:layout_marginTop="0.5dp"
             android:background="@color/colorWhite"
             app:icon="@drawable/ic_shopping"
-            app:layout_constraintTop_toBottomOf="@id/isv_share_sale_mine"
+            app:layout_constraintTop_toBottomOf="@id/isv_share_collect_mine"
             app:title="我的拼团"
             />
 

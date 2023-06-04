@@ -1,5 +1,6 @@
 package com.example.mine.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -26,6 +27,7 @@ class MineFragment:BaseFragment() {
 
 
     private  val viewModel: MineViewModel by viewModels { defaultViewModelProviderFactory }
+    //UserInfoResponse中的数据
     private  var info:UserInfoResponse?=null
     override fun getLayoutRes()= R.layout.fragment_mine
 
@@ -41,7 +43,13 @@ class MineFragment:BaseFragment() {
                 ARouter.getInstance().build("/login/login").navigation()
             }
 //
+            isvShareCollectMine.setOnClickListener {
+                LogUtils.d("点击收藏")
+                Intent(activity, CollectActivity::class.java).run {
 
+                    startActivity(this)
+                }
+            }
                 //跳转userInfoFragment
                 ivUserIconMine.setOnClickListener {
                //     LogUtils.d("info${info}viewModel.liveUser.value${viewModel.liveUser.value}")

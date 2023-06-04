@@ -48,7 +48,7 @@ interface NetWorkService {
     @GET("/lg/collect/list/{page}/json")
     fun getLikeList(
         @Path("page") page: Int
-    ): Call<BannerResponse>
+    ): Call<CollectListResponse>
 
     /**
      * 收藏文章

@@ -45,8 +45,7 @@ object NetWork {
     =getCollectStaticWanAndroid.addCollectArticle(id).await()
 
     private val getCollectWanAndroid=ServiceCreator.create(NetWorkService::class.java)
-    suspend fun getCollectIndoWanAndroid(page:Int)
-    =getCollectWanAndroid.getLikeList(page).await()
+    suspend fun getCollectIndoWanAndroid(page:Int) =getCollectWanAndroid.getLikeList(page).await()
 
     private val getHomeListWanAndroid=ServiceCreator.create(NetWorkService::class.java)
     suspend fun getHomeListInfoWanAndroid(page: Int)= getHomeListWanAndroid.getHomeList(page).await()
