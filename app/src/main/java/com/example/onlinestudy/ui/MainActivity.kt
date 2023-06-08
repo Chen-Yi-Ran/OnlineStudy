@@ -2,6 +2,7 @@ package com.example.onlinestudy.ui
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import androidx.navigation.ui.setupWithNavController
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.common.base.BaseActivity
 import com.example.common.widget.BnvVp2Mediator
@@ -34,7 +35,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         super.initView()
         //进行设置BottomNavigationView可以联动切换Fragment
 //        val navController = findNavController(R.id.fcv_main)
-//        mBinding.bnvMain.setupWithNavController(navController)
+ //      mBinding.bnvMain.setupWithNavController(navController)
         mBinding.apply {
             vp2Main.adapter = MainViewPagerAdapter(this@MainActivity, fragments)
             BnvVp2Mediator(bnvMain, vp2Main){
@@ -42,7 +43,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                 vp2.isUserInputEnabled=true//用户是否可以滑动
 
             }.attach()
-
         }
 
     }

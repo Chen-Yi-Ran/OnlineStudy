@@ -60,7 +60,7 @@ class MineFragment:BaseFragment() {
                        info?.let {
                            val action=MineFragmentDirections
                                .actionMineFragmentToUserInfoFragment(info!!)
-                           findNavController().navigate(action)
+                          this@MineFragment.findNavController().navigate(action)
                        }
                    }
                 }
