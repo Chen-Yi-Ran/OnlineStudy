@@ -16,6 +16,7 @@
 
 
 <img src="https://github.com/Chen-Yi-Ran/OnlineStudy/blob/master/file/home.jpg" width="200px">
+<img src="https://github.com/Chen-Yi-Ran/OnlineStudy/blob/master/file/collect.jpg" width="200px">
 ![首页](https://github.com/Chen-Yi-Ran/OnlineStudy/blob/master/file/home.jpg)
 ![收藏](https://github.com/Chen-Yi-Ran/OnlineStudy/blob/master/file/collect.jpg)
 ![课程](https://github.com/Chen-Yi-Ran/OnlineStudy/blob/master/file/course.jpg)
