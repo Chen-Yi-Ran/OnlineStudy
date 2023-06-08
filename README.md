@@ -15,7 +15,7 @@
 |入口模块|公共模块|首页模块|登录注册模块|用户信息模块|网络请求封装模块|学习中心模块|教程学习模块|
 
 
-<img src="https://github.com/Chen-Yi-Ran/OnlineStudy/blob/master/file/home.jpg" width="200px"> <img src="https://github.com/Chen-Yi-Ran/OnlineStudy/blob/master/file/course.jpg" width="200px"> <img src="https://github.com/Chen-Yi-Ran/OnlineStudy/blob/master/file/collect.jpg" width="200px"> <img src="https://github.com/Chen-Yi-Ran/OnlineStudy/blob/master/file/mine.jpg" width="200px"> <img src="https://github.com/Chen-Yi-Ran/OnlineStudy/blob/master/file/study.jpg" width="200px"> <img src="https://github.com/Chen-Yi-Ran/OnlineStudy/blob/master/file/webview.jpg" width="200px"> <img src="https://github.com/Chen-Yi-Ran/OnlineStudy/blob/master/file/webview2.jpg" width="200px"> <img src="https://github.com/Chen-Yi-Ran/OnlineStudy/blob/master/file/tool.jpg" width="200px">
+<img src="https://github.com/Chen-Yi-Ran/OnlineStudy/blob/master/file/home.jpg" width="210px"> <img src="https://github.com/Chen-Yi-Ran/OnlineStudy/blob/master/file/course.jpg" width="210px"> <img src="https://github.com/Chen-Yi-Ran/OnlineStudy/blob/master/file/collect.jpg" width="210px"> <img src="https://github.com/Chen-Yi-Ran/OnlineStudy/blob/master/file/mine.jpg" width="210px"> <img src="https://github.com/Chen-Yi-Ran/OnlineStudy/blob/master/file/study.jpg" width="210px"> <img src="https://github.com/Chen-Yi-Ran/OnlineStudy/blob/master/file/webview.jpg" width="210px"> <img src="https://github.com/Chen-Yi-Ran/OnlineStudy/blob/master/file/webview2.jpg" width="210px"> <img src="https://github.com/Chen-Yi-Ran/OnlineStudy/blob/master/file/tool.jpg" width="210px"> <img src="https://github.com/Chen-Yi-Ran/OnlineStudy/blob/master/file/mycollect.jpg" width="210px">
 
 
 
