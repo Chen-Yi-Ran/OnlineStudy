@@ -1,6 +1,6 @@
 # 基于Kotlin+MVVM+JetPack+协程的在线教育APP
 - 项目技术选型与架构:
-- Kotlin+MVVM
+- Kotlin+MVVM+组件化
 - Jetpack( ViewModel、LiveData、 Lifecycle、DataBinding、Room、Navigation、Paging)
 - Okhttp+Retrofit+Kotlin协程进行网络请求
 - Glide进行图片加载与缓存、Json解析框架Gson
