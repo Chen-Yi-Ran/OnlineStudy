@@ -14,6 +14,8 @@
 |--|--|--|--|--|--|--|--|
 |入口模块|公共模块|首页模块|登录注册模块|用户信息模块|网络请求封装模块|学习中心模块|教程学习模块|
 
+
+<img src="https://github.com/Chen-Yi-Ran/OnlineStudy/blob/master/file/home.jpg" width="100px">
 ![首页](https://github.com/Chen-Yi-Ran/OnlineStudy/blob/master/file/home.jpg)
 ![收藏](https://github.com/Chen-Yi-Ran/OnlineStudy/blob/master/file/collect.jpg)
 ![课程](https://github.com/Chen-Yi-Ran/OnlineStudy/blob/master/file/course.jpg)
