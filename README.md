@@ -13,7 +13,15 @@
 |app|common|home|login|mine|service|study|course|
 |--|--|--|--|--|--|--|--|
 |入口模块|公共模块|首页模块|登录注册模块|用户信息模块|网络请求封装模块|学习中心模块|教程学习模块|
-![首页](https://github.com/Chen-Yi-Ran/OnlineStudy/blob/master/file/home.jpg)
 
+![首页](https://github.com/Chen-Yi-Ran/OnlineStudy/blob/master/file/home.jpg)
+![收藏](https://github.com/Chen-Yi-Ran/OnlineStudy/blob/master/file/collect.jpg)
+![课程](https://github.com/Chen-Yi-Ran/OnlineStudy/blob/master/file/course.jpg)
+![用户信息](https://github.com/Chen-Yi-Ran/OnlineStudy/blob/master/file/mine.jpg)
+![学习中心](https://github.com/Chen-Yi-Ran/OnlineStudy/blob/master/file/study.jpg)
+![h5页面1](https://github.com/Chen-Yi-Ran/OnlineStudy/blob/master/file/webview.jpg)
+![h5页面2](https://github.com/Chen-Yi-Ran/OnlineStudy/blob/master/file/webview2.jpg)
+![工具](https://github.com/Chen-Yi-Ran/OnlineStudy/blob/master/file/tool.jpg)
 
 项目中使用的API来自WanAndroid网站免费API
+
